@@ -43,7 +43,7 @@ function Layout({ children }) {
     function handlerClick(url) {
         router.push(url)
     }
-    audioPlayer.current !== undefined ? audioPlayer.current.volume = 0.08 :''
+    audioPlayer.current !== undefined ? audioPlayer.current.volume = 0.08 : ''
 
     useEffect(() => {
         // let arr2 = ['BannerIzquierdo1', 'BannerIzquierdo2', 'BannerIzquierdo3', 'BannerIzquierdo4','BannerPortada1', 'BannerPortada2', 'BannerPortada3', 'BannerDerecho1', 'BannerDerecho2', 'BannerDerecho3', 'BannerDerecho4','BannerPortada']
@@ -56,90 +56,96 @@ function Layout({ children }) {
 
 
     return (
-<>
-        <div className={styles.container}>
-            
-            <div>
-                <BannerLateral carpeta="BannerPortada" items={[1, 2, 3]} click={handlerClickEnlace}></BannerLateral>
+        <>
+            <div className={styles.container}>
+
+                <div>
+                    <BannerLateral carpeta="BannerPortada" items={[1, 2, 3]} click={handlerClickEnlace}></BannerLateral>
+                </div>
+                <div>
+                    <BannerLateral carpeta="BannerIzquierdo" items={[1, 2, 3, 4]} click={handlerClickEnlace}></BannerLateral>
+                </div>
+                <div>
+                    <BannerLateral carpeta="BannerDerecho" items={[1, 2, 3, 4]} click={handlerClickEnlace}></BannerLateral>
+                </div>
+                <main className={styles.main}>
+                    {children}
+
+                    <Link href="/FlipBook" legacyBehavior scroll={false}>
+                        <a onClick={handlerClick} target="_blank">
+                        <img src='/ninoPDF-optimizado.png' className={`${styles.animationNinoPDF}`} />
+                            </a>
+                    </Link>
+                    
+
+                    <NavbarSimple footer='layout'></NavbarSimple>
+                    <footer className={styles.footer} id="Nosotros">
+                        <div>
+                            <h5>MISIÓN</h5>
+                            <div className={styles.footerItemsContainer}>
+                                <img src="/vision.svg" alt="" />
+                                <p className={styles.paragraph}>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacional e internacional.</p>
+
+                            </div>
+                        </div>
+                        <div>
+                            <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
+                            <div className={styles.footerItemsContainer}>
+                                <img src="/contact.svg" alt="" />
+                                <p>(+591) 2 488973 <br /> 73002076 <br />60101760</p>
+                                <img src="/ubication.svg" alt="" />
+                                <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 4, Of. 4B <br /> Zona San Pedro</p>
+                            </div>
+
+                        </div>
+                        <div>
+                            <h5>VISIÓN</h5>
+                            <div className={styles.footerItemsContainer}>
+                                <img src="/mision.svg" alt="" />
+                                <p>Ser el medio impreso y digital de mayor influencia en la construcción de un cultura ciudadana en torno a la realidad nacional e internacional.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>SIGUENOS EN</h5>
+                            <div className='flex items-center h-[50px] '>
+                                <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/FACEBOOK-01.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/INSTAGRAM-02.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/TWITTER-03.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/YOUTUBE-04.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tIK tOK-05.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
+                                </Link>
+                                <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
+                                    <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/WHATSAPP-06.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
+                                </Link>
+                            </div>
+                        </div>
+                        <div>
+                            <br />
+                            <Link href="/Login" legacyBehavior scroll={false}>
+                                <a onClick={handlerClick}> <span> ©TARKAN Ltda.</span></a>
+
+                            </Link>
+                            <Link href="https://swoou.com/" legacyBehavior scroll={false}>
+                                <a onClick={handlerClick}> <span> Desarrollado por swoou.com</span></a>
+                            </Link>
+                        </div>
+                    </footer>
+                </main>
+                <audio src="/news_1.mp3" loop autoPlay ref={audioPlayer}></audio>
+
+                {dataEditor && <Modal carpeta={dataEditor.carpeta} item={dataEditor.item} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
+
+                {success == "NoData" && <Success>NO existe DATOS en esta decha</Success>}
             </div>
-            <div>
-                <BannerLateral carpeta="BannerIzquierdo" items={[1, 2, 3, 4]} click={handlerClickEnlace}></BannerLateral>
-            </div>
-            <div>
-                <BannerLateral carpeta="BannerDerecho" items={[1, 2, 3, 4]} click={handlerClickEnlace}></BannerLateral>
-            </div>
-            <main className={styles.main}>
-                {children}
-                <img src='/ninoPDF-optimizado.png' className={`w-[10vw] min-w-[200px] fixed bottom-[10px] right-[18vw] bg-white rounded-[20px]  p-[10px]  ${styles.animationNinoPDF}`} />
-
-                <NavbarSimple footer='layout'></NavbarSimple>
-                <footer className={styles.footer} id="Nosotros">
-                    <div>
-                        <h5>MISIÓN</h5>
-                        <div className={styles.footerItemsContainer}>
-                            <img src="/vision.svg" alt="" />
-                            <p className={styles.paragraph}>Informar, educar y contribuir a la formación de una cultura ciudadana en torno a la realidad nacional e internacional.</p>
-
-                        </div>
-                    </div>
-                    <div>
-                        <h5>DIRECCIÓN Y PUBLICIDAD ONLINE</h5>
-                        <div className={styles.footerItemsContainer}>
-                            <img src="/contact.svg" alt="" />
-                            <p>(+591) 2 488973 <br /> 73002076 <br />60101760</p>
-                            <img src="/ubication.svg" alt="" />
-                            <p>Calle Cañada Strongest, <br /> No. 1782 esq. Capitán Castrillo, <br /> Edif. Napolis, Piso 4, Of. 4B <br /> Zona San Pedro</p>
-                        </div>
-
-                    </div>
-                    <div>
-                        <h5>VISIÓN</h5>
-                        <div className={styles.footerItemsContainer}>
-                            <img src="/mision.svg" alt="" />
-                            <p>Ser el medio impreso y digital de mayor influencia en la construcción de un cultura ciudadana en torno a la realidad nacional e internacional.</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h5>SIGUENOS EN</h5>
-                        <div className='flex items-center h-[50px] '>
-                            <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/FACEBOOK-01.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://www.instagram.com/periodicohoybolivia/" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/INSTAGRAM-02.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://twitter.com/_HOYBolivia" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/TWITTER-03.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://www.youtube.com/channel/UCXFA6pzESb1NQMsepmhC6Vw" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/YOUTUBE-04.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href="https://www.tiktok.com/@periodicohoybolivia" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/tIK tOK-05.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
-                            </Link>
-                            <Link href={`https://api.whatsapp.com/send?phone=+59161116665&text=Hola%20Periódico%20HOY%20%20quiero%20contactarme%20con%20un%20agente%20de%20ventas...`} legacyBehavior scroll={false}>
-                                <a onClick={handlerClick} target="_blank"> <img src="/SocialMedia/WHATSAPP-06.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
-                            </Link>
-                        </div>
-                    </div>
-                    <div>
-                        <br />
-                        <Link href="/Login" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick}> <span> ©TARKAN Ltda.</span></a>
-
-                        </Link>
-                        <Link href="https://swoou.com/" legacyBehavior scroll={false}>
-                            <a onClick={handlerClick}> <span> Desarrollado por swoou.com</span></a>
-                        </Link>
-                    </div>
-                </footer>
-            </main>
-            <audio src="/news_1.mp3" loop autoPlay ref={audioPlayer}></audio>
-
-            {dataEditor && <Modal carpeta={dataEditor.carpeta} item={dataEditor.item} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
-
-            {success == "NoData" && <Success>NO existe DATOS en esta decha</Success>}
-        </div>
         </>
     )
 }

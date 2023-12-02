@@ -84,7 +84,7 @@ function Home() {
                 <div className='inline-block relative'>
                     <span onClick={() => redirect(zoomIMG !== undefined && zoomIMG.redireccion ? zoomIMG.redireccion : (zoomIMG !== undefined && zoomIMG.enlace && zoomIMG.enlace.includes('https://www.youtube') ? zoomIMG.enlace : '#'))}>
                         {zoomIMG !== undefined && zoomIMG.url
-                            ? <img className='landscape:w-[80vh] portrait:h-[80vw] object-contain rounded-[15px]' src={zoomIMG.url} />
+                            ? <img className='landscape:w-[80vh] portrait:w-[100vw] object-contain rounded-[15px]' src={zoomIMG.url} />
                             : <>
                                 {zoomIMG !== undefined && zoomIMG.enlace !== undefined && zoomIMG.enlace.includes('https://www.youtube')
                                     ? <iframe
@@ -94,7 +94,7 @@ function Home() {
                                         frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowfullscreen></iframe>
-                                    : <img className='landscape:w-[80vh] portrait:h-[80vw] object-contain rounded-[15px]' src={zoomIMG !== undefined && zoomIMG.enlace} />
+                                    : <img className='landscape:w-[80vh] portrait:w-[100vw] object-contain rounded-[15px]' src={zoomIMG !== undefined && zoomIMG.enlace} />
                                 }
                             </>
                         }

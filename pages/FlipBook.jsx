@@ -9,7 +9,7 @@ function MyBook(props) {
     console.log(window.screen.width)
 
     return (
-        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital['Edicion 11_2023'] && userDB.EdicionDigital['Edicion 11_2023'] !== undefined && <div className=' bg-[#00404a] h-screen w-full flex items-center overflow-hidden'>
+        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital['Edicion 11_2023'] && userDB.EdicionDigital['Edicion 11_2023'] !== undefined && <div className=' bg-[#00404a] h-screen w-full flex items-center overflow-hidden sm:h-auto sm:min-h-screen sm:pt-[75px]'>
             <NavbarBack></NavbarBack>
 
             <button className='fixed text-[20px] text-gray-500 h-[40px] w-[100px] text-white rounded-full inline-block left-[0px] top-0 bottom-0 my-auto bg-[#00000080] z-20 lg:left-[20px] pointer-events-none' >Anterior</button>
