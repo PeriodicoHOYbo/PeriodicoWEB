@@ -237,7 +237,7 @@ console.log(parse(textEditor))
             <div className={`${styles.containerButtonsPlayer} flex w-full justify-center`}>
             {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' &&  Array.isArray(parse(textEditor)) &&  parse(textEditor).reduce((acc, result) => {
               return acc + result.props.children
-            }, '').replaceAll('[object Object]').replaceAll('undefined')} />}
+            }, '').replaceAll('[object Object]', '').replaceAll('undefined', '')} />}
           </div>
 
             {userDB && userDB[validate()] && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].state == 'Publicado' || user
