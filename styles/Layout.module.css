@@ -1,8 +1,9 @@
 .container {
   position: relative;
   display: grid;
-  grid-template-columns: 20vw 1fr 20vw;
+  grid-template-columns: 20vw 60vw 20vw;
   min-height: 100vh;
+  overflow-x: hidden;
 
 }
 .container > :nth-child(1) {
