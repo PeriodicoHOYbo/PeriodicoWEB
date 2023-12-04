@@ -97,6 +97,9 @@ export default function Navbar() {
                     <Link href="#Nosotros" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} >NOSOTROS</a>
                     </Link>
+                    <Link href="/EdicionDigital" legacyBehavior scroll={false}>
+                        <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} >EDICION DIGITAL</a>
+                    </Link>
                     <Link href="/" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} >CLASIFICADOS</a>
                     </Link>

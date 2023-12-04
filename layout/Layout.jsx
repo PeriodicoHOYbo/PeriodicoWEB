@@ -16,10 +16,6 @@ import BannerLeft from '../components/BannerLeft'
 import BannerLateral from '../components/BannerLateral'
 import BannerPortada from '../components/BannerPortada'
 
-import Section from '../components/Section'
-import Date from '../components/Date'
-import Header from '../components/Header'
-
 import styles from '../styles/Layout.module.css'
 import { handleSignOut } from '../firebase/utils'
 import { getIndexStorage } from '../firebase/storage'

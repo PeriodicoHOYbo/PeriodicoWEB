@@ -125,10 +125,12 @@ export default function Section({ topic, publicView, color }) {
 
             {user && userDB && userDB.users && userDB.users[user.uid] !== undefined && userDB.users[user.uid] && userDB.users[user.uid].rol === 'admin' && publicView == false && viewPeriodista == false &&
                 <>
-                    <div className={`grid ${topic !== 'Inicio' ? 'grid-cols-3' : 'grid-cols-2'} gap-2`}>
+                    <div className={`grid ${topic !== 'Inicio' ? 'grid-cols-3' : 'grid-cols-3'} gap-2`}>
                         <Tag theme={tag === 'Banners' ? 'Primary' : 'Transparent'} click={() => handlerTag('Banners')}>Banners</Tag>
-                        <Tag theme={tag === 'Modals' ? 'Primary' : 'Transparent'} click={() => handlerTag('Modals')}>Modals</Tag>
-                        {topic !== 'Inicio' && <Select arr={bannerNotas} click={handleCheck} focus={tag.includes('Notas') ? true : false}></Select>}
+                        <Tag theme={tag === 'Modals' ? 'Primary' : 'Transparent'} click={() => handlerTag('Modals')}>{topic !== 'Inicio' ? 'Modals' : 'Modals Portada'}</Tag>
+                        {topic !== 'Inicio'
+                            ? <Select arr={bannerNotas} click={handleCheck} focus={tag.includes('Notas') ? true : false}></Select>
+                            : <Tag theme={tag === 'Banners' ? 'Primary' : 'Transparent'} click={() => router.push('/EdicionDigital')}>Edición digital</Tag>}
                         {/* { topic !== 'Inicio' && <Tag theme={tag === 'Notas' ? 'Primary' : 'Transparent'} click={() => handlerTag('Notas')}>Notas</Tag>} */}
                     </div>
                     <div className={`${style.formInputsAdmin} ${style.formInputs}`}>
@@ -172,30 +174,30 @@ export default function Section({ topic, publicView, color }) {
             }
             {zoomIMG !== undefined && <div className='fixed flex justify-center items-center top-0 left-0 h-[100vh] w-[100vw] bg-[#000000c7] z-[1000000000]' onClick={closeZoom}>
                 <div className='inline-block relative'>
-                        <span onClick={() => redirect(zoomIMG.redireccion ? zoomIMG.redireccion : (zoomIMG.enlace && zoomIMG.enlace.includes('https://www.youtube') ? zoomIMG.enlace : '#'))}>
-                                {zoomIMG.url
-                                    ? <img className='landscape:w-[80vh] portrait:h-[80vw] object-contain rounded-[15px]' src={zoomIMG.url} />
-                                    : <>
-                                        {zoomIMG.enlace !== undefined && zoomIMG.enlace.includes('https://www.youtube')
-                                            ? <iframe
-                                                className={`${styles.responsiveIframe} ${carpeta === 'BannerPortada' && 'h-[200px] md:h-[300px]'}`}
-                                                src={zoomIMG.enlace.includes('https://www.youtube') ? zoomIMG.enlace.replace('/watch?v=', '/embed/') + '?showinfo=0' : zoomIMG.enlace}
-                                                title="YouTube video player"
-                                                frameborder="0"
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                allowfullscreen></iframe>
-                                            : <img className='landscape:w-[80vh] portrait:h-[80vw] object-contain rounded-[15px]' src={zoomIMG.enlace} />
-                                        }
-                                    </>
+                    <span onClick={() => redirect(zoomIMG.redireccion ? zoomIMG.redireccion : (zoomIMG.enlace && zoomIMG.enlace.includes('https://www.youtube') ? zoomIMG.enlace : '#'))}>
+                        {zoomIMG.url
+                            ? <img className='landscape:w-[80vh] portrait:h-[80vw] object-contain rounded-[15px]' src={zoomIMG.url} />
+                            : <>
+                                {zoomIMG.enlace !== undefined && zoomIMG.enlace.includes('https://www.youtube')
+                                    ? <iframe
+                                        className={`${styles.responsiveIframe} ${carpeta === 'BannerPortada' && 'h-[200px] md:h-[300px]'}`}
+                                        src={zoomIMG.enlace.includes('https://www.youtube') ? zoomIMG.enlace.replace('/watch?v=', '/embed/') + '?showinfo=0' : zoomIMG.enlace}
+                                        title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                    : <img className='landscape:w-[80vh] portrait:h-[80vw] object-contain rounded-[15px]' src={zoomIMG.enlace} />
                                 }
-                            </span>
+                            </>
+                        }
+                    </span>
 
                     {
                         zoomIMG.whatsapp !== '' && <Link href={`https://api.whatsapp.com/send?phone=${zoomIMG.whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                             <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
                         </Link>
                     }
-                     <button type="button" className="absolute top-3 right-2.5 text-gray-400 bg-[#000000c7] hover:bg-gray-200 hover:text-gray-900 rounded-lg text-[14px] w-8 h-8 ml-auto inline-flex justify-center items-center z-50" onClick={closeZoom}>
+                    <button type="button" className="absolute top-3 right-2.5 text-gray-400 bg-[#000000c7] hover:bg-gray-200 hover:text-gray-900 rounded-lg text-[14px] w-8 h-8 ml-auto inline-flex justify-center items-center z-50" onClick={closeZoom}>
                         <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                         </svg>

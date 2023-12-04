@@ -200,7 +200,7 @@ function TemplateOne() {
 
 
 
-console.log(parse(textEditor))
+  console.log(parse(textEditor))
 
 
   // useEffect(() => {
@@ -219,7 +219,7 @@ console.log(parse(textEditor))
             {userDB && userDB[validate()] && userDB[validate()]["BannerTop"] && <Banner ruta={validate()} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
           </div>
 
-          
+
 
           <div className={`${styles.viewer} ${formViewer == false && styles.hideForm}`}>
 
@@ -235,10 +235,10 @@ console.log(parse(textEditor))
             </div>
 
             <div className={`${styles.containerButtonsPlayer} flex w-full justify-center`}>
-            {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' &&  Array.isArray(parse(textEditor)) &&  parse(textEditor).reduce((acc, result) => {
-              return acc + result.props.children
-            }, '').replaceAll('[object Object]', '').replaceAll('undefined', '')} />}
-          </div>
+              {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' && Array.isArray(parse(textEditor)) && parse(textEditor).reduce((acc, result) => {
+                return acc + result.props.children
+              }, '').replaceAll('[object Object]', '').replaceAll('undefined', '')} />}
+            </div>
 
             {userDB && userDB[validate()] && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].state == 'Publicado' || user
               ? <div className={`${styles.qlEditor} `} styles={{ padding: '0', height: '50%' }} >
@@ -264,19 +264,10 @@ console.log(parse(textEditor))
 
               : <div>En redacción...</div>
             }
-            {formViewer == false ? <span className={styles.formHide} onClick={formViewerHandler}>▷</span> : ''}
+            {user && formViewer == true && <div className='w-[90%] max-w-[350px] relative left-0 right-0 bottom-[20px] mx-auto z--50'>
+            <Button style="miniButtonPrimary" click={formViewerHandler}>Editar nota</Button>
+          </div>}
           </div>
-
-          <div className={styles.adds}>
-
-
-
-            <BannerNotas routeDB={`${validate()}`} items={[1, 2, 3, 4]} click={handlerClickEnlace} admin={formViewer}></BannerNotas>
-
-            {/* <img src="/publicidad.jpg" alt="" /> */}
-          </div>
-
-
 
           {/* editor */}
 
@@ -317,19 +308,18 @@ console.log(parse(textEditor))
               <Button style="miniButtonPrimary" click={(e) => save(e, 'B')}> Guardar/Borrador</Button>
               <Button style="miniButtonPrimary" click={(e) => save(e, 'P')}> Publicar</Button>
             </div>
+            {user && formViewer == false && <div className='w-[90%] max-w-[350px] relative left-0 right-0  mx-auto py-5'>
+            <Button style="miniButtonPrimary" click={formViewerHandler}>Previsualizar</Button>
           </div>}
-          {user && <span className={styles.formViewer} onClick={formViewerHandler}>▷</span>}
+          </div>}
 
         </main>}
-      {specificData && router.query.temporal !== undefined &&
+      {
+        specificData && router.query.temporal !== undefined &&
         <TemplateNota topic={validate()} publicView={true} banner='none'></TemplateNota>
-
       }
-
       {dataEditor && <Modal carpeta={dataEditor.carpeta} item={dataEditor.item} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
-
       {success == "save" && <Success>Cargando...</Success>}
-
       <Temporizador topic={validate()} />
     </Layout>
   )
