@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: 16vw 68vw 16vw;
   min-height: 100vh;
-  overflow-x: hidden;
 
 }
 .container > :nth-child(1) {
