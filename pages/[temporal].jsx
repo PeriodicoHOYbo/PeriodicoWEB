@@ -61,9 +61,9 @@ function TemplateOne() {
 
   const [arr, setArr] = useState([0])
 
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [copyrightIMG, setCopyrightIMG] = useState('')
+  const [title, setTitle] = useState(null)
+  const [description, setDescription] = useState(null)
+  const [copyrightIMG, setCopyrightIMG] = useState(null)
 
   const [textEditor, setTextEditor] = useState("")
 
@@ -172,7 +172,13 @@ function TemplateOne() {
     })
 
   }
-
+console.log({
+  title: title ? title : '',
+  description: description ? description : '',
+  copyrightIMG: copyrightIMG ? copyrightIMG : '',
+  state: st == 'B' ? 'Borrador' : 'Publicado',
+  redactor: user.uid
+})
 
   function formViewerHandler() {
     setFormViewer(!formViewer)
@@ -231,6 +237,11 @@ console.log(parse(textEditor))
             <h2 className={styles.title}>{description}</h2>
             <p className={styles.description}>{title}</p>
 
+        <div className={`${styles.containerButtonsPlayer} flex w-full justify-center`}>
+            {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' &&  Array.isArray(parse(textEditor)) &&  parse(textEditor).reduce((acc, result) => {
+              return acc + result.props.children
+            }, '').replaceAll('[object Object]').replaceAll('undefined')} />}
+          </div>
 
             <div className={styles.containerIMGCenter}>
               <div className={styles.containerIMG}>
@@ -239,11 +250,7 @@ console.log(parse(textEditor))
               </div>
             </div>
 
-            <div className={`${styles.containerButtonsPlayer} flex w-full justify-center`}>
-            {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' &&  Array.isArray(parse(textEditor)) &&  parse(textEditor).reduce((acc, result) => {
-              return acc + result.props.children
-            }, '').replaceAll('[object Object]').replaceAll('undefined')} />}
-          </div>
+    
 
             {userDB && userDB[validate()] && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].state == 'Publicado' || user
               ? <div className={`${styles.qlEditor} `} styles={{ padding: '0', height: '50%' }} >
@@ -292,11 +299,11 @@ console.log(parse(textEditor))
           {user && <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
 
             <label htmlFor="Title" >Titulo</label>
-            <input type="text" id="Title" name="description" onChange={handlerOnChange} defaultValue={description} />
+            <input type="text" id="Title" name="description" className='p-3 rounded-[5px]' onChange={handlerOnChange} defaultValue={description} />
             <label htmlFor="Description" >Descripcion</label>
-            <input type="text" id="Description" name="title" onChange={handlerOnChange} defaultValue={title} />
+            <input type="text" id="Description" name="title" className='p-3 rounded-[5px]' onChange={handlerOnChange} defaultValue={title} />
             <label htmlFor="Description" >Autor IMG</label>
-            <input type="text" id="Description" name="copyrightIMG" onChange={handlerOnChange} defaultValue={copyrightIMG} />
+            <input type="text" id="Description" name="copyrightIMG" className='p-3 rounded-[5px]' onChange={handlerOnChange} defaultValue={copyrightIMG} />
 
 
             <h2 className={styles.title}>{description}</h2>
