@@ -30,7 +30,7 @@ export default function AnyComponent({ value, setValue }) {
     handlerSpeechText()
 
     return (
-        <div className='hidden lg:flex w-full items-center'>
+        <div className='hidden md:flex w-full items-center'>
 
             <div className={isRecording && style.spinnerContainer}>
                 <div className={isRecording && style.spinner}>

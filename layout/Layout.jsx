@@ -69,7 +69,7 @@ function Layout({ children }) {
 
                     <Link href="/FlipBook?edicion=Edicion 11_2023" legacyBehavior scroll={false}>
                         <a onClick={handlerClick} target="_blank">
-                        <img src='/ninoPDF-optimizado.png' className={`${styles.animationNinoPDF}`} />
+                        <img src='/ninoPDF-optimizado.jpeg' className={`${styles.animationNinoPDF}`} />
                             </a>
                     </Link>
                     
@@ -136,7 +136,7 @@ function Layout({ children }) {
                         </div>
                     </footer>
                 </main>
-                <audio src="/news_1.mp3" loop autoPlay ref={audioPlayer}></audio>
+                {/* <audio src="/news_1.mp3" loop autoPlay ref={audioPlayer}></audio> */}
 
                 {dataEditor && <Modal carpeta={dataEditor.carpeta} item={dataEditor.item} i={dataEditor.i} close={handlerClickEnlace}></Modal>}
 
