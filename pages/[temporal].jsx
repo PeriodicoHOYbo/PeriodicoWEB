@@ -168,7 +168,7 @@ function TemplateOne() {
     writeUserData(rutePost, objectPost, setUserSuccess, 'save')
 
     return setUserSpecificData({
-      ...specificData, [`PostImage_${router.query.temporal}`]: {...objectDB, ...objectPost},
+      ...specificData, [`PostImage_${router.query.temporal}`]: { ...objectDB, ...objectPost },
     })
 
   }
@@ -192,9 +192,9 @@ function TemplateOne() {
       ? console.log('nota existente')
       : getSpecificData(`/Posts/PostImage_${router.query.temporal}`, specificData, setUserSpecificData)
 
-    userDB && userDB[validate()] && setTitle(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].title)
-    userDB && userDB[validate()] && setDescription(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].description)
-    userDB && userDB[validate()] && setCopyrightIMG(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].copyrightIMG)
+    title === null && userDB && userDB[validate()] && setTitle(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].title)
+    description === null && userDB && userDB[validate()] && setDescription(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].description)
+    copyrightIMG === null && userDB && userDB[validate()] && setCopyrightIMG(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].copyrightIMG)
 
     specificData && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota
       ? setTextEditor(specificData[`PostImage_${router.query.temporal}`].nota)
@@ -297,13 +297,13 @@ function TemplateOne() {
 
             </div>
             <br />
-            <div  className='flex w-full'>
+            <div className='flex w-full'>
               <label htmlFor="Description" className='w-[100px]' >Descripcion</label>
               <input type="text" id="Description" name="title" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={title} />
 
             </div>
             <br />
-            <div  className='flex w-full'>
+            <div className='flex w-full'>
               <label htmlFor="Description" className='w-[100px]' >Autor IMG</label>
               <input type="text" id="Description" name="copyrightIMG" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={copyrightIMG} />
             </div>
