@@ -205,7 +205,7 @@ function TemplateOne() {
 
 
 
-console.log(parse(textEditor))
+  console.log(parse(textEditor))
 
 
   // useEffect(() => {
@@ -224,18 +224,18 @@ console.log(parse(textEditor))
             {userDB && userDB[validate()] && userDB[validate()]["BannerTop"] && <Banner ruta={validate()} carpeta="BannerTop" click={handlerClickEnlace}></Banner>}
           </div>
 
-          
+
 
           <div className={`${styles.viewer} ${formViewer == false && styles.hideForm}`}>
 
             <h2 className={styles.title}>{description}</h2>
             <p className={styles.description}>{title}</p>
 
-        <div className={`${styles.containerButtonsPlayer} flex w-full justify-center`}>
-            {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' &&  Array.isArray(parse(textEditor)) &&  parse(textEditor).reduce((acc, result) => {
-              return acc + result.props.children
-            }, '').replaceAll('[object Object]').replaceAll('undefined')} />}
-          </div>
+            <div className={`${styles.containerButtonsPlayer} flex w-full justify-center`}>
+              {specificData && router.query && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota && <SpeechSynthesis text={parse(textEditor) !== 'En redacción ' && Array.isArray(parse(textEditor)) && parse(textEditor).reduce((acc, result) => {
+                return acc + result.props.children
+              }, '').replaceAll('[object Object]').replaceAll('undefined')} />}
+            </div>
 
             <div className={styles.containerIMGCenter}>
               <div className={styles.containerIMG}>
@@ -244,7 +244,7 @@ console.log(parse(textEditor))
               </div>
             </div>
 
-    
+
 
             {userDB && userDB[validate()] && userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].state == 'Publicado' || user
               ? <div className={`${styles.qlEditor} `} styles={{ padding: '0', height: '50%' }} >
@@ -269,11 +269,11 @@ console.log(parse(textEditor))
 
 
               : <div>En redacción...</div>
-              
+
             }
-              {user && formViewer == true && <div className='w-[90%] max-w-[350px] relative left-0 right-0 bottom-[20px] mx-auto z--50'>
-            <Button style="miniButtonPrimary" click={formViewerHandler}>Editar nota</Button>
-          </div>}
+            {user && formViewer == true && <div className='w-[90%] max-w-[350px] relative left-0 right-0 bottom-[20px] mx-auto z--50'>
+              <Button style="miniButtonPrimary" click={formViewerHandler}>Editar nota</Button>
+            </div>}
           </div>
 
           <div className={styles.adds}>
@@ -329,8 +329,8 @@ console.log(parse(textEditor))
               <Button style="miniButtonPrimary" click={(e) => save(e, 'P')}> Publicar</Button>
             </div>
             {user && formViewer == false && <div className='w-[90%] max-w-[350px] relative left-0 right-0  mx-auto py-5'>
-            <Button style="miniButtonPrimary" click={formViewerHandler}>Previsualizar</Button>
-          </div>}
+              <Button style="miniButtonPrimary" click={formViewerHandler}>Previsualizar</Button>
+            </div>}
           </div>}
 
         </main>}
@@ -343,7 +343,7 @@ console.log(parse(textEditor))
 
       {success == "save" && <Success>Cargando...</Success>}
 
-      <Temporizador topic={validate()} />
+      {user && user !== undefined && <Temporizador topic={validate()} />}
     </Layout>
   )
 }
