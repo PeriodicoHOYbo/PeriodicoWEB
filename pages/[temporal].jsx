@@ -168,7 +168,7 @@ function TemplateOne() {
     writeUserData(rutePost, objectPost, setUserSuccess, 'save')
 
     return setUserSpecificData({
-      ...specificData, [`PostImage_${router.query.temporal}`]: objectPost,
+      ...specificData, [`PostImage_${router.query.temporal}`]: {...objectDB, ...objectPost},
     })
 
   }
@@ -293,19 +293,19 @@ function TemplateOne() {
           {user && <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
             <div className='flex w-full'>
               <label htmlFor="Title" className='w-[100px]' >Titulo</label>
-              <input type="text" id="Title" name="description" className='block w-full p-1 rounded-[5px] m-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={description} />
+              <input type="text" id="Title" name="description" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={description} />
 
             </div>
             <br />
             <div  className='flex w-full'>
               <label htmlFor="Description" className='w-[100px]' >Descripcion</label>
-              <input type="text" id="Description" name="title" className='block w-full p-1 rounded-[5px] m-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={title} />
+              <input type="text" id="Description" name="title" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={title} />
 
             </div>
             <br />
             <div  className='flex w-full'>
               <label htmlFor="Description" className='w-[100px]' >Autor IMG</label>
-              <input type="text" id="Description" name="copyrightIMG" className='block w-full p-1 rounded-[5px] m-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={copyrightIMG} />
+              <input type="text" id="Description" name="copyrightIMG" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={copyrightIMG} />
             </div>
 
 
