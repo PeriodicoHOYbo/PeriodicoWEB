@@ -46,7 +46,7 @@ function TemplateOne({ text }) {
 console.log(speech)
     return (
         speech.hasBrowserSupport() ?
-            <div className='flex justify-center items-center w-[300px] z-30 bg-[#00404a] px-[100px] py-2 rounded-[10px] ' style={{ background: 'linear-gradient(to right, #00404a, #007483, #00404a)' }}>
+            <div className='flex justify-center items-center w-[300px] z-30 bg-[#00404a] px-[100px] py-2 rounded-[10px] mb-[10px]' style={{ background: 'linear-gradient(to right, #00404a, #007483, #00404a)' }}>
                 <button onClick={pause} className='px-5'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="white" d="M2.93 17.07A10 10 0 1 1 17.07 2.93A10 10 0 0 1 2.93 17.07zM7 6v8h2V6H7zm4 0v8h2V6h-2z" /></svg>
                 </button>
