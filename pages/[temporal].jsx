@@ -172,13 +172,7 @@ function TemplateOne() {
     })
 
   }
-console.log({
-  title: title ? title : '',
-  description: description ? description : '',
-  copyrightIMG: copyrightIMG ? copyrightIMG : '',
-  state: st == 'B' ? 'Borrador' : 'Publicado',
-  redactor: user.uid
-})
+
 
   function formViewerHandler() {
     setFormViewer(!formViewer)
@@ -299,11 +293,13 @@ console.log(parse(textEditor))
           {user && <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
 
             <label htmlFor="Title" >Titulo</label>
-            <input type="text" id="Title" name="description" className='p-3 rounded-[5px]' onChange={handlerOnChange} defaultValue={description} />
+            <input type="text" id="Title" name="description" className='p-3 rounded-[5px] mx-[5px]' onChange={handlerOnChange} defaultValue={description} />
+            <br />
             <label htmlFor="Description" >Descripcion</label>
-            <input type="text" id="Description" name="title" className='p-3 rounded-[5px]' onChange={handlerOnChange} defaultValue={title} />
+            <input type="text" id="Description" name="title" className='p-3 rounded-[5px] mx-[5px]' onChange={handlerOnChange} defaultValue={title} />
+            <br />
             <label htmlFor="Description" >Autor IMG</label>
-            <input type="text" id="Description" name="copyrightIMG" className='p-3 rounded-[5px]' onChange={handlerOnChange} defaultValue={copyrightIMG} />
+            <input type="text" id="Description" name="copyrightIMG" className='p-3 rounded-[5px] mx-[5px]' onChange={handlerOnChange} defaultValue={copyrightIMG} />
 
 
             <h2 className={styles.title}>{description}</h2>
