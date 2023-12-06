@@ -291,22 +291,21 @@ function TemplateOne() {
 
 
           {user && <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
-            <div className='flex'>
+            <div className='flex w-full'>
               <label htmlFor="Title" >Titulo</label>
               <input type="text" id="Title" name="description" className='block w-full p-1 rounded-[5px] m-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={description} />
 
             </div>
             <br />
-            <div  className='flex'>
+            <div  className='flex w-full'>
               <label htmlFor="Description" >Descripcion</label>
               <input type="text" id="Description" name="title" className='block w-full p-1 rounded-[5px] m-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={title} />
 
             </div>
             <br />
-            <div  className='flex'>
+            <div  className='flex w-full'>
               <label htmlFor="Description" >Autor IMG</label>
               <input type="text" id="Description" name="copyrightIMG" className='block w-full p-1 rounded-[5px] m-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={copyrightIMG} />
-
             </div>
 
 
