@@ -141,6 +141,8 @@ function Layout({ children }) {
                             <br />
                             <br />
                             <div>
+                            <br />
+                            <br />
                                 Nº de Visitas HOY <br />
                                 <div className={style.container}>
                                 <span className={style.time} style={{ fontSize: '35px', color: 'white', height: '50px' }}>{Math.round(getSecondsToday() / (new Date().getDay() * 5))}</span> 
