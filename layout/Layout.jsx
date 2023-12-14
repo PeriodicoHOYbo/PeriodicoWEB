@@ -143,12 +143,14 @@ function Layout({ children }) {
                             <div>
                             <br />
                             <br />
-                            
-                            <div className='block w-full'>Nº de Visitas HOY <br />  </div>
+                            <div>
+                                <div className='block w-full'>Nº de Visitas HOY <br />  </div>
                                 <div className={style.container}>
                                 <span className={style.time} style={{ fontSize: '35px', color: 'white', height: '50px' }}>{new Intl.NumberFormat('es-MX').format(Math.round(getSecondsToday() / (new Date().getDay() * 5)))}</span> 
                                 </div>
                             </div>
+                            </div>
+                            
                             <br />
                             <Link href="/Login" legacyBehavior scroll={false}>
                                 <a onClick={handlerClick}> <span> ©TARKAN Ltda.</span></a>
