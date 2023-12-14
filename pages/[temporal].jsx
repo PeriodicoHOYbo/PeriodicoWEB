@@ -320,7 +320,7 @@ function TemplateOne() {
             </div>
             <SpeechToText setValue={setTextEditor} value={textEditor ? textEditor : 'nada'} />
             <br />
-            <div className={styles.editor} >
+            <div className={styles.editor}  >
               <TextEditor setValue={setTextEditor} value={textEditor ? textEditor : 'nada'} edit={true}></TextEditor>
             </div>
 
