@@ -29,7 +29,6 @@ function Layout({ children }) {
     const router = useRouter()
 
 
-
     function handlerClickEnlace(data) {
         router.pathname != "/Admin" && window.open(data.href, data.target)
         router.pathname == "/Admin" && setDataEditor(data)
@@ -40,7 +39,18 @@ function Layout({ children }) {
         router.push(url)
     }
     audioPlayer.current !== undefined ? audioPlayer.current.volume = 0.08 : ''
-
+    function getSecondsToday() {
+        let now = new Date();
+      
+        // creamos un objeto que contenga el día/mes/año actual
+        let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      
+        let diff = now - today; // diferencia entre fechas, representado en ms
+        return Math.round(diff / 1000); // pasaje a segundos
+      }
+      function numeroAleatorio(min, max) {
+        return Math.round(Math.random() * (max - min) + min);
+      }
     useEffect(() => {
         // let arr2 = ['BannerIzquierdo1', 'BannerIzquierdo2', 'BannerIzquierdo3', 'BannerIzquierdo4','BannerPortada1', 'BannerPortada2', 'BannerPortada3', 'BannerDerecho1', 'BannerDerecho2', 'BannerDerecho3', 'BannerDerecho4','BannerPortada']
 
@@ -125,6 +135,10 @@ function Layout({ children }) {
                             </div>
                         </div>
                         <div>
+                            <br />
+                            <div>
+                              Nº de Visitas hoy  {Math.round(getSecondsToday() / (new Date().getDay() * 5))}
+                            </div>
                             <br />
                             <Link href="/Login" legacyBehavior scroll={false}>
                                 <a onClick={handlerClick}> <span> ©TARKAN Ltda.</span></a>
