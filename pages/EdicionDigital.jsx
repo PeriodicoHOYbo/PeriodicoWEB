@@ -97,7 +97,7 @@ function Form({ topic, value, color }) {
                 {/* <NavbarBack></NavbarBack> */}
 
                 {/* <select className={style.select}  name={`${topic}-Template-${dayMonthYear}`} onChange={manageTemplate} style={{ backgroundColor: color, fontWeight: 'bold', border: '2px solid brown' }}> */}
-                <div className={`min-h-[450px]  relative flex flex-col justify-center items-center bg-[#00404a]`}>
+                { user && user !== undefined && <div className={`min-h-[450px]  relative flex flex-col justify-center items-center bg-[#00404a]`}>
                     <h3 className='text-white pb-[20px]'> Edición Dígital</h3>
                     <form className={`${style.formSelectPost} w-full bg-white p-10 max-w-[350px] space-y-5 rounded-[20px]`} onSubmit={save}>
                         <label htmlFor={`${topic}-Post`} className={`block relative cursor-pointer min-w-[140px] rounded-[20px] transition-all w-full p-[2px] text-[white] text-[12px] bg-[brown] border-[2px] border-[brown]`} >Cargar Imagenes </label>
@@ -106,8 +106,8 @@ function Form({ topic, value, color }) {
                         <input type="text" className='w-full border-b-[1px] border-gray-500' placeholder='Enlace PDF' name="EnlacePDF" onChange={handlerEventChange} />
                         <Button theme="buttonMiniSecondary" type='button'>Guardar</Button>
                     </form>
-                </div>
-                <div className="divide-y divide-gray-200  p-10 h-[450px] overflow-y-scroll w-full  ">
+                </div>}
+                {user && user !== undefined &&  <div className="divide-y divide-gray-200  p-10 h-[450px] overflow-y-scroll w-full  ">
                     <h3 className='text-center'>Imagenes Seleccionadas</h3>
                     <br />
                     <ul className="divide-y divide-gray-200 ">
@@ -137,7 +137,7 @@ function Form({ topic, value, color }) {
                             </li>
                         })}
                     </ul>
-                </div>
+                </div>}
 
                 <div className="divide-y divide-gray-200  p-10  col-span-2 w-full ">
                     <h3 className='text-center'>Edición digital</h3>
