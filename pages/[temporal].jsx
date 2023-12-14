@@ -350,7 +350,7 @@ function TemplateOne() {
 
       {success == "save" && <Success>Cargando...</Success>}
 
-      {user && user !== undefined && <Temporizador topic={validate()} />}
+      {user === null && <Temporizador topic={validate()} />}
     </Layout>
   )
 }
