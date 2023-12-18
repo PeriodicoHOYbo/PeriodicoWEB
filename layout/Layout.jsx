@@ -147,7 +147,7 @@ function Layout({ children }) {
                             <br />
                                 <div className='block w-full'>Nº de Visitas HOY <br />  </div>
                                 <div className={style.container}>
-                                <span className={style.time} style={{ fontSize: '35px', color: 'white', height: '50px' }}>{new Intl.NumberFormat('es-MX').format(Math.round(getSecondsToday() / ((new Date().getDay() < 3 ? new Date().getDay() + 1 : - 1) * 2)))}</span> 
+                                <span className={style.time} style={{ fontSize: '35px', color: 'white', height: '50px' }}>{new Intl.NumberFormat('es-MX').format(Math.round(getSecondsToday() / ((new Date().getDay() < 3 ? new Date().getDay() + 1 : - 1) * 5)))}</span> 
                                 </div>
                             </div>
                             </div>
