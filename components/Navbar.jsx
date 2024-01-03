@@ -103,9 +103,9 @@ export default function Navbar() {
                     <Link href="/" legacyBehavior scroll={false}>
                         <a className={`${style.link} ${pathname == "#Nosotros" ? style.active : ''}`} >CLASIFICADOS</a>
                     </Link>
-                    <Link href="/" legacyBehavior scroll={false}>
+                    <Link href="https://clasificados.hoy.bo/" legacyBehavior scroll={false}>
                         <a className={`absolute pt-[5px] top-0 bottom-0 my-auto  right-[0px] ${pathname == "#Sociedad" ? style.active : ''}`} onClick={handlerClick}>
-                            <span className='  h-[30px] rounded-full flex justify-center items-center bg-white rounded my-auto '><img src={'/clasificados_v2.jpeg'} className="block h-[30px] rounded-full cursor-pointer" onClick={() => router.push('/')} alt="" /></span>
+                            <span className='  h-[30px] rounded-full flex justify-center items-center bg-white rounded my-auto '><img src={'/clasificados_v2.jpeg'} className="block h-[30px] rounded-full cursor-pointer" onClick={() => router.push('https://clasificados.hoy.bo/')} alt="" /></span>
                         </a>
                     </Link>
                 </nav>
