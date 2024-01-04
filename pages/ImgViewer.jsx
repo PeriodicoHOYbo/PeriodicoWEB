@@ -83,7 +83,8 @@ function TemplateOne() {
 
   }
 
-  function redirect(ruta) {
+  function redirect(e, ruta) {
+    e.stopPropagation()
     window.open(ruta, '_blank')
   }
 
@@ -101,8 +102,8 @@ function TemplateOne() {
           </svg>
           <span className="sr-only">Close modal</span>
         </button>
-        {router.query.whatsapp && router.query.whatsapp !== undefined && <button className='bg-[#00000050] hover:bg-[#00000080] flex items-center justify-center text-white font-bold text-[16px] border border-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-[16px] w-full h-[40px] px-2  text-center z-20' onClick={() => redirect(`https://api.whatsapp.com/send?phone=+${router.query.whatsapp.replaceAll(' ', '')}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`)}>Contactar</button>}
-        {router.query.redireccion && router.query.redireccion !== undefined && <button className='bg-[#00000050] hover:bg-[#00000080] flex items-center justify-center text-white font-bold text-[16px] border border-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-[16px] w-full h-[40px] px-2  text-center z-20' onClick={() => redirect(router.query.redireccion)}>Visitar Sitio web</button>}
+        {router.query.whatsapp && router.query.whatsapp !== undefined && <button className='bg-[#00000050] hover:bg-[#00000080] flex items-center justify-center text-white font-bold text-[16px] border border-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-[16px] w-full h-[40px] px-2  text-center z-20' onClick={(e) => redirect(e, `https://api.whatsapp.com/send?phone=+${router.query.whatsapp.replaceAll(' ', '')}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`)}>Contactar</button>}
+        {router.query.redireccion && router.query.redireccion !== undefined && <button className='bg-[#00000050] hover:bg-[#00000080] flex items-center justify-center text-white font-bold text-[16px] border border-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-[16px] w-full h-[40px] px-2  text-center z-20' onClick={(e) => redirect(e, router.query.redireccion)}>Visitar Sitio web</button>}
       </div>}
     </div>
 
