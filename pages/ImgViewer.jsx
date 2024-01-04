@@ -79,7 +79,7 @@ function TemplateOne() {
       setButtons(false)
     } else {
       setButtons(false)
-      window.open(router.query.redireccion, '_self')    }
+    }
 
   }
 
