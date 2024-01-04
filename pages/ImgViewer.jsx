@@ -79,8 +79,6 @@ function TemplateOne() {
       setButtons(false)
     } else {
       setButtons(false)
-            window.open(`${router.query.url.replaceAll('spaceURL', '%2F')}&token=${router.query.token}`, '_self')    
-
     }
 
   }
