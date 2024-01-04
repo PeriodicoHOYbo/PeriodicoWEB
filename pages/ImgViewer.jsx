@@ -79,6 +79,8 @@ function TemplateOne() {
       setButtons(false)
     } else {
       setButtons(false)
+            window.open(router.query.url, '_self')    }
+
     }
 
   }
