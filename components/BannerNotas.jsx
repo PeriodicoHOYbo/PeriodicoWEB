@@ -132,7 +132,7 @@ export default function Banner({ routeDB, items, click, admin }) {
                                             </span>
                                     }
                                     {
-                                        userDB[`${routeDB}`][`BannerNotas${item}`][i].whatsapp !== '' && <Link href={`https://api.whatsapp.com/send?phone=${userDB[`${routeDB}`][`BannerNotas${item}`][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
+                                        userDB[`${routeDB}`][`BannerNotas${item}`][i].whatsapp !== '' && <Link href={`https://api.whatsapp.com/send?phone=${userDB[`${routeDB}`][`BannerNotas${item}`][i].whatsapp}&text=Hola%20vi%20su%20anuncio%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                                             <a target="_blank"><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></a>
                                         </Link>
                                     }
