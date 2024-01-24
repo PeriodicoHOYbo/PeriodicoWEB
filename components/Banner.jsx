@@ -105,7 +105,7 @@ export default function Banner({ ruta, carpeta, click }) {
                                 }
                                 {
                                     userDB[ruta][carpeta][i].whatsapp !== '' &&
-                                    <Link href={`https://api.whatsapp.com/send?phone=${userDB[ruta][carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncion%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
+                                    <Link href={`https://api.whatsapp.com/send?phone=${userDB[ruta][carpeta][i].whatsapp}&text=Hola%20vi%20su%20anuncio%20en%20el%20PERIODICO%20HOY%20`} legacyBehavior>
                                         <a target="_blank"><span><img className={styles.sliderWhatsapp} src={`/SocialMedia/whatsapp.svg`} /></span></a>
                                     </Link>
                                 }
