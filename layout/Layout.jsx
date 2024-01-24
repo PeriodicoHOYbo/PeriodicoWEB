@@ -79,7 +79,7 @@ function Layout({ children }) {
                 <main className={styles.main}>
                     {children}
 
-                    <Link href="/FlipBook?edicion=Edicion 11_2023" legacyBehavior scroll={false}>
+                    <Link href="/FlipBook?edicion=Edicion 01_2024" legacyBehavior scroll={false}>
                         <a onClick={handlerClick} target="_blank">
                             <img src='/ninoPDF-optimizado.jpeg' className={`${styles.animationNinoPDF}`} />
                         </a>
