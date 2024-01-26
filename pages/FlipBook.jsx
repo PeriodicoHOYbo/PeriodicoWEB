@@ -11,7 +11,7 @@ function MyBook(props) {
     console.log(router.query.edicion)
 
     return (
-        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital[ router.query.edicion] && userDB.EdicionDigital[ router.query.edicion] !== undefined && <div className='relative top-[-200px] bg-[#00404a] h-screen w-full flex items-center overflow-hidden sm:h-auto  sm:min-h-screen'>
+        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital[ router.query.edicion] && userDB.EdicionDigital[ router.query.edicion] !== undefined && <div className='relative top-[-300px] bg-[#00404a] h-screen w-full flex items-center overflow-hidden sm:h-auto  sm:min-h-screen'>
             <NavbarBack></NavbarBack>
 
             <button className='fixed text-[20px] text-gray-500 h-[40px] w-[100px] text-white rounded-full inline-block left-[0px] top-0 bottom-0 my-auto bg-[#00000080] z-20 lg:left-[20px] pointer-events-none' >Anterior</button>
