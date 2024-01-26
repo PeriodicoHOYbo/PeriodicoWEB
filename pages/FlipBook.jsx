@@ -12,7 +12,7 @@ function MyBook(props) {
     console.log(window.screen.width)
 
     return (
-        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital[router.query.edicion] && userDB.EdicionDigital[router.query.edicion] !== undefined && <div className='absolute sm:max-h-[100vw] flex justify-center items-center bg-[#00404a] min-h-screen w-full overflow-hidden '>
+        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital[router.query.edicion] && userDB.EdicionDigital[router.query.edicion] !== undefined && <div className='absolute sm:max-h-[90vw] flex justify-center items-center bg-[#00404a] min-h-screen w-full overflow-hidden '>
             <NavbarBack></NavbarBack>
 
             <button className='fixed text-[20px] text-gray-500 h-[40px] w-[100px] text-white rounded-full inline-block left-[0px] top-0 bottom-0 my-auto bg-[#00000080] z-20 lg:left-[20px] pointer-events-none' >Anterior</button>
@@ -21,7 +21,7 @@ function MyBook(props) {
             <HTMLFlipBook
                 width={ navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i) || window.innerWidth <= 780 ? window.screen.width - 50 : window.screen.width - 300} 
                 // width={screen.width - 400}
-                height={screen.width * .9}
+                height={screen.width * 1}
                 // size={'stretch'}
                 maxShadowOpacity={0.5}
                 showCover={false}
