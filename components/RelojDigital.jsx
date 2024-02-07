@@ -16,8 +16,8 @@ export default function Time() {
 
     return (
         <div className={style.container}>
-            <Script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_yiyAbxYxYI2rdcrA7fzDDsfbgtlALAhlbtkdEcCoq1j"/>
-
+{/*             <Script type="text/javascript" src="https://www.tutiempo.net/s-widget/l_yiyAbxYxYI2rdcrA7fzDDsfbgtlALAhlbtkdEcCoq1j"/>
+ */}
             <span className={style.time}>{time}</span>
 
             
