@@ -22,9 +22,9 @@ export default function Time() {
 
             
             <div className={style.clima}>
-            <div id="TT_yiyAbxYxYI2rdcrA7fzDDsfbgtlALAhlbtkdEcCoq1j"></div>
+{/*             <div id="TT_yiyAbxYxYI2rdcrA7fzDDsfbgtlALAhlbtkdEcCoq1j"></div>
 
-            </div>
+            </div> */}
         </div>
 
 
