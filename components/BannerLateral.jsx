@@ -34,6 +34,10 @@ export default function Banner({ carpeta, items, click }) {
     }
     function handlerZoom(i) {
         console.log(i)
+        if (i.pdf && i.pdf !== undefined && i.pdf === true) {
+            window.open(i.redireccion, '_blank')
+            return
+        }
         if (i.modal) {
             console.log('active true')
 
