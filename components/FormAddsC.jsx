@@ -18,6 +18,7 @@ export default function Form({ id, ruteDB, ruteSTG, title, dataDB, close }) {
     const [localFileURL, setLocalFileURL] = useState(null)
     const [isCheckedComp, setIsCheckedComp] = useState(true)
     const [isCheckedModal, setIsCheckedModal] = useState(true)
+    const [isCheckedPDF, setIsCheckedPDF] = useState(false)
 
 
     function handlerEventChange(e) {
@@ -48,7 +49,12 @@ export default function Form({ id, ruteDB, ruteSTG, title, dataDB, close }) {
     function handlerCheckedModal() {
         setIsCheckedModal(!isCheckedModal)
     }
-
+    function handlerCheckedPDF () {
+        setIsCheckedPDF(!isCheckedPDF)
+    }
+    // function isCheckedModalPDF () {
+    //     setIsCheckedPDF()
+    // }
     function save(e) {
         e.preventDefault()
         const monthYear = monthAndYear ? monthAndYear : getMonthAndYear()
@@ -59,7 +65,7 @@ export default function Form({ id, ruteDB, ruteSTG, title, dataDB, close }) {
         } else {
             if (data[`dateInit`] && data[`dateFinish`]) {
                 const key = newDate.getTime()
-                const object = { [key]: { uuid: key, ...data, modal: isCheckedModal } }
+                const object = { [key]: { uuid: key, ...data, modal: isCheckedModal, pdf: isCheckedPDF } }
                 writeUserData(ruteDB, object, setUserSuccess, setUserData)
                 localFile && uploadIMG(ruteDB, ruteSTG, key, localFile, setUserSuccess, monthYear, isCheckedComp)
             } else {
@@ -121,6 +127,7 @@ export default function Form({ id, ruteDB, ruteSTG, title, dataDB, close }) {
                     <div className={style.radioInputs}>
                         <input type="checkbox" onClick={handlerCheckedComp} checked={isCheckedComp} /> Comp
                         <input type="checkbox" onClick={handlerCheckedModal} checked={isCheckedModal} /> Modal
+                        <input type="checkbox" onClick={handlerCheckedPDF} checked={isCheckedPDF} /> PDF
                     </div>
 
                     <input type="text" placeholder='Enlace Youtube o IMG' name={`${id}-enlace`} onChange={handlerEventChange} />
