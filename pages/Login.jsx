@@ -37,7 +37,7 @@ function Login() {
                 <br />
                 <form className={style.form}>
                     <h4 className={style.subtitle}>LOGIN</h4>
-                    <input className={style.input} type="text" placeholder="example@gmail.co" />
+                    <input className={style.input} type="text" placeholder="example@gmail.com" />
                     <input className={style.input} type="password" placeholder="contraseña" />
                     <div className={style.buttonsContainer}>
                         <Button style='buttonSecondary' click={loginWithEmailAndPassword}>Iniciar Sesion</Button>
