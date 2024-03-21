@@ -114,7 +114,7 @@ function Layout({ children }) {
                             </div>
                         </div>
                         <div>
-                            <h5>SIGUENOS EN</h5>
+                            <h5>SIGUENOS E</h5>
                             <div className='flex items-center h-[50px] '>
                                 <Link href="https://www.facebook.com/periodicohoybolivia0" legacyBehavior scroll={false}>
                                     <a onClick={handlerClick} target="_blank"><img src="/SocialMedia/FACEBOOK-01.svg" className='h-[30px] w-[30px]' alt="SocialMedia" /></a>
