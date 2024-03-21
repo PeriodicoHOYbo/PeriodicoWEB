@@ -31,7 +31,7 @@ function Login() {
     }, [user]);
     return (
         <div className={style.container}>
-            <header className={style.header}>INICIO DE SESION PERIODICO HOY</header>
+            <header className={style.header}>INICIO DE SESION PERIODICO</header>
             <main className={style.main}>
                 <Image src="/logo.png" width="350" height="150" alt="User" />
                 <br />
