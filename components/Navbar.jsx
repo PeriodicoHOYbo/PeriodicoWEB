@@ -53,7 +53,7 @@ export default function Navbar() {
 
             <div className={style.container}>
                 <nav className={`${style.nav}`} style={{ padding: '0 80px', position: 'relative' }}>
-                    <Link href="/" legacyBehavior scroll={false}>
+                    <Link href="https://hoy.bo/" legacyBehavior scroll={false}>
                         <a className={` absolute pt-[5px] h-[30px] top-0 left-[0px] ${pathname == "#Sociedad" ? style.active : ''}`} onClick={handlerClick}>
                             <span className=' h-[30px] rounded-full flex justify-center items-center bg-white rounded'><img src={'/inicio_v2.jpeg'} className="block h-[30px] rounded-full cursor-pointer" onClick={() => router.push('/')} alt="" /></span>
                         </a>
