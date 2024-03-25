@@ -154,7 +154,7 @@ function Layout({ children }) {
                             
                             <br />
                             <Link href="/Login" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick}> <span></span></a>
+                                <a onClick={handlerClick}> <span>Inti</span></a>
 
                             </Link>
                             <Link href="https://swoou.com/" legacyBehavior scroll={false}>
