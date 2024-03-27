@@ -19,12 +19,20 @@ function MyBook(props) {
                     width={(screen.width - 100) / 2}
                     height={screen.height * 0.83}
                     maxShadowOpacity={0.5}
-                    showCover={false}
+                    showCover={true}
                     swipeDistance={10}
                     flippingTime={500}
                     mobileScrollSupport={true}
                 >
-                    {Object.values(userDB.EdicionDigital[router.query.edicion]).map((i, index) => {
+                    {userDB.EdicionDigital[router.query.edicion][0] && (
+                        <div className='relative w-full h-full flex items-center justify-center' style={{
+                            backgroundImage: `url(${userDB.EdicionDigital[router.query.edicion][0].url})`,
+                            backgroundSize: 'contain',
+                            backgroundPosition: 'center'
+                        }}>
+                        </div>
+                    )}
+                    {Object.values(userDB.EdicionDigital[router.query.edicion]).slice(1).map((i, index) => {
                         const isOdd = (index + 1) % 2 !== 0;
                         const leftOrRight = isOdd ? 'right' : 'left';
                         return (
