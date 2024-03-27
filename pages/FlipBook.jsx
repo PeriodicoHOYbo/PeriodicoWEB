@@ -19,28 +19,17 @@ function MyBook(props) {
                     width={(screen.width - 100) / 2}
                     height={screen.height * 0.83}
                     maxShadowOpacity={0.5}
-                    showCover={true}
+                    showCover={false}
                     swipeDistance={10}
                     flippingTime={500}
                     mobileScrollSupport={true}
                 >
-                    {userDB.EdicionDigital[router.query.edicion][0] && (
-                        <div className='relative w-full h-full flex items-center justify-center' style={{
-                            backgroundImage: `url(${userDB.EdicionDigital[router.query.edicion][0].url})`,
-                            backgroundSize: 'contain',
-                            backgroundPosition: 'center'
-                        }}>
-                        </div>
-                    )}
-                    {Object.values(userDB.EdicionDigital[router.query.edicion]).slice(1).map((i, index) => {
+                    {Object.values(userDB.EdicionDigital[router.query.edicion]).map((i, index) => {
                         const isOdd = (index + 1) % 2 !== 0;
                         const leftOrRight = isOdd ? 'right' : 'left';
                         return (
                             <div className={`relative w-full h-full flex items-center justify-center ${leftOrRight}-0`} key={index}>
-                                <div className={`absolute top-0 left-0 w-full h-full`}>
-                                    <img className='w-full h-full object-contain object-center' src={`${i.url}`} />
-                                </div>
-                                <div className={`absolute inset-0 bg-gray-800 opacity-75 ${isOdd ? 'right-0' : 'left-0'}`}></div>
+                                <img className='w-full h-full object-contain object-center' src={`${i.url}`} />
                             </div>
                         )
                     })}
@@ -54,9 +43,9 @@ function MyBook(props) {
         </div>
     )
 }
-                
-export default WithoutAuth(MyBook)
 
+
+export default WithoutAuth(MyBook)
 
 
 
