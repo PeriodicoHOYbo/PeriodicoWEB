@@ -158,7 +158,8 @@ function Layout({ children }) {
 
                             </Link>
                             <Link href="https://swoou.com/" legacyBehavior scroll={false}>
-                                <a onClick={handlerClick}> <span></span></a>
+                                <a onClick={handlerClick}> <span>
+©TARKAN Ltda.</span></a>
                             </Link>
                         </div>
                     </footer>
