@@ -99,7 +99,7 @@ console.log(selection)
 
                     <form className={`${styles.form} ${formViewer == false && styles.hideForm}`}>
 
-                        {formViewer == true ? <span className={styles.formHide} onClick={formViewerHandler}>◁</span> : ''}
+                        {formViewer == true ? <span className={styles.formHide} onChange={handlerOnChange}>◁</span> : ''}
                         <label htmlFor="Title" >Titulo</label>
                         <input type="text" id="Title" name="Title" onChange={handlerOnChange} />
                         <label htmlFor="Description" >Descripcion</label>
