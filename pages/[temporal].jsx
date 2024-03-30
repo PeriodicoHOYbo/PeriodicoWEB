@@ -61,8 +61,8 @@ function TemplateOne() {
 
   const [arr, setArr] = useState([0])
 
-  const [title, setTitle] = useState(true)
-  const [description, setDescription] = useState(true)
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
   const [copyrightIMG, setCopyrightIMG] = useState(null)
 
   const [textEditor, setTextEditor] = useState("")
