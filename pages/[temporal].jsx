@@ -293,13 +293,13 @@ function TemplateOne() {
           {user && <div className={`${styles.viewer} ${formViewer == true && styles.hideForm}`}>
             <div className='flex w-full'>
               <label htmlFor="Title" className='w-[100px]' >Titulo</label>
-              <input type="text" id="Title" name="description" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={description} />
+              <input type="text" id="Title" name="title" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={title} />
 
             </div>
             <br />
             <div className='flex w-full'>
               <label htmlFor="Description" className='w-[100px]' >Descripcion</label>
-              <input type="text" id="Description" name="title" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={title} />
+              <input type="text" id="Description" name="description" className='block w-full p-1 rounded-[5px] mx-[5px] outline-none border-[1px] border-gray-500' onChange={handlerOnChange} defaultValue={description} />
 
             </div>
             <br />
@@ -309,8 +309,8 @@ function TemplateOne() {
             </div>
 
 
-            <h2 className={styles.title}>{description}</h2>
-            <p className={styles.description}>{title}</p>
+            <h2 className={styles.title}>{title}</h2>
+            <p className={styles.description}>{description}</p>
 
             <div className={styles.containerIMGCenter}>
               <div className={styles.containerIMG}>
