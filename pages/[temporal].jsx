@@ -187,19 +187,19 @@ function TemplateOne() {
   }
 
 
-  useEffect(() => {
-    specificData && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota
-      ? console.log('nota existente')
-      : getSpecificData(`/Posts/PostImage_${router.query.temporal}`, specificData, setUserSpecificData)
+ useEffect(() => {
+  if (specificData && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota) {
+    setTextEditor(specificData[`PostImage_${router.query.temporal}`].nota)
+  } else {
+    getSpecificData(`/Posts/PostImage_${router.query.temporal}`, specificData, setUserSpecificData)
+  }
 
-   userDB && userDB[validate()] && setTitle(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].title)
-   userDB && userDB[validate()] && setDescription(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].description)
-    userDB && userDB[validate()] && setCopyrightIMG(userDB[validate()].Posts[`PostImage_${router.query.temporal.slice(2)}`].copyrightIMG)
-
-    specificData && specificData[`PostImage_${router.query.temporal}`] && specificData[`PostImage_${router.query.temporal}`].nota
-      ? setTextEditor(specificData[`PostImage_${router.query.temporal}`].nota)
-      : setTextEditor('En redacción ')
-  }, [userDB, specificData, router.query.temporal]);
+  if (userDB && userDB[validate()]) {
+    setTitle(userDB[validate()]?.Posts[`PostImage_${router.query.temporal.slice(2)}`]?.title)
+    setDescription(userDB[validate()]?.Posts[`PostImage_${router.query.temporal.slice(2)}`]?.description)
+    setCopyrightIMG(userDB[validate()]?.Posts[`PostImage_${router.query.temporal.slice(2)}`]?.copyrightIMG)
+  }
+}, [userDB, specificData, router.query.temporal])
 
 
 
