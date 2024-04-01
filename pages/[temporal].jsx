@@ -205,7 +205,7 @@ function TemplateOne() {
 
 
 
-  console.log(parse(textEditor))
+  //console.log(parse(textEditor))
 
 
   // useEffect(() => {
