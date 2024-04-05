@@ -16,7 +16,7 @@ function MyBook(props) {
             <NavbarBack></NavbarBack>
             <div className={`flex h-full w-full items-center justify-center ${zoom && 'pointer-events-none'}`} onClick={(e) => e.preventDefault()}>
                 <HTMLFlipBook
-                    width={(screen.width - 80) / 2}
+                    width={(screen.width - 120) / 2}
                     height={screen.height * 0.83}
                     maxShadowOpacity={0.5}
                     showCover={false}
