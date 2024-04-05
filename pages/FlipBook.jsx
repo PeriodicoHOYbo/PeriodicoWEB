@@ -18,9 +18,9 @@ function MyBook(props) {
                 <HTMLFlipBook
                     width={(screen.width - 100) / 2}
                     height={screen.height * 0.90}
-                    maxShadowOpacity={0.5}
+                    maxShadowOpacity={0}
                     showCover={false}
-                    swipeDistance={1}
+                    swipeDistance={10}
                     flippingTime={500}
                     mobileScrollSupport={true}
                 >
