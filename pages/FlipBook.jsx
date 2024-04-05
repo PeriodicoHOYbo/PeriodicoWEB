@@ -29,9 +29,9 @@ function MyBook(props) {
         const leftOrRight = isOdd ? 'right' : 'left';
         return (
             <div
-                className={`relative w-full h-full flex items-center ${leftOrRight}-0`}
+                className={`relative w-full h-full flex items-center justify-center ${leftOrRight}-0`}
                 key={index}
-                style={{ display: 'flex', justifyContent: 'space-between' }}
+                style={{ display: 'flex', justifyContent: 'space-between', padding: '0 20px' }}
             >
                 <img
                     className='w-full h-full object-contain object-center'
