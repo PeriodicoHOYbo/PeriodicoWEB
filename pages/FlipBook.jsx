@@ -6,46 +6,46 @@ import { useRouter } from 'next/router'
 import { useState } from 'react';
 
 function MyBook(props) {
-  const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear, viewPeriodista } = useUser()
-  const router = useRouter()
-  let navegador = navigator.userAgent;
-  const [zoom, setZoom] = useState(false)
+    const { user, userDB, setUserData, setUserSuccess, success, postsIMG, setUserPostsIMG, monthAndYear, dayMonthYear, viewPeriodista } = useUser()
+    const router = useRouter()
+    let navegador = navigator.userAgent;
+    const [zoom, setZoom] = useState(false)
 
-  return (
-    userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital[router.query.edicion] && userDB.EdicionDigital[router.query.edicion] !== undefined && <div className='absolute h-full w-full'>
-      <NavbarBack></NavbarBack>
-      <div className={`flex h-full w-full items-center justify-center ${zoom && 'pointer-events-none'}`} onClick={(e) => e.preventDefault()}>
-        <HTMLFlipBook
-          width={screen.width - 150}
-          height={screen.height * 0.83}
-          maxShadowOpacity={0.5}
-          showCover={false}
-          swipeDistance={10}
-          flippingTime={500}
-          mobileScrollSupport={true}
-        >
-          {Object.values(userDB.EdicionDigital[router.query.edicion]).map((i, index) => {
-            const isOdd = (index + 1) % 2 !== 0;
-            const leftOrRight = isOdd ? 'right' : 'left';
-            return (
-              <div className={`relative w-full h-full flex items-center justify-center ${leftOrRight}-0`} key={index}>
-                <img className='w-[90%] h-[90%] object-contain object-center mx-auto' src={`${i.url}`} />
-              </div>
-            )
-          })}
-        </HTMLFlipBook>
-      </div>
-      <div className='absolute top-0 z-10 flex'>
-        <button className={`absolute w-[100px] text-[20px] h-[40px] text-white rounded-full inline-block left-0 top-0 bottom-0 my-auto bg-[#00000080] pointer-events-none ${zoom && 'pointer-events-auto'}`} disabled>Anterior</button>
-        <button className={`absolute w-[200px] text-[20px] h-[40px] right-0 top-0 bottom-0 mx-auto bg-[#00000080] z-10 text-white rounded-full inline-block pointer-events-none ${zoom ? 'pointer-events-auto' : 'pointer-events-none'}`} disabled={zoom} onClick={() => setZoom(!zoom)}>{zoom ? 'desabilitar zoom +' : 'habilitar zoom +'}</button>
-        <button className={`absolute w-[100px] text-[20px] h-[40px] text-white rounded-full inline-block right-0 top-0 bottom-0 my-auto bg-[#00000080] pointer-events-none ${zoom && 'pointer-events-auto'}`} disabled>{zoom ? 'Siguiente' : 'Siguiente'}</button>
-      </div>
-    </div>
-  )
+    return (
+        userDB && userDB !== undefined && userDB.EdicionDigital && userDB.EdicionDigital[router.query.edicion] && userDB.EdicionDigital[router.query.edicion] !== undefined && <div className='absolute h-full w-full'>
+            <NavbarBack></NavbarBack>
+            <div className={`flex h-full w-full items-center justify-center ${zoom && 'pointer-events-none'}`} onClick={(e) => e.preventDefault()}>
+                <HTMLFlipBook
+                    width={(screen.width - 80) / 2}
+                    height={screen.height * 0.83}
+                    maxShadowOpacity={0.5}
+                    showCover={false}
+                    swipeDistance={10}
+                    flippingTime={500}
+                    mobileScrollSupport={true}
+                >
+                    {Object.values(userDB.EdicionDigital[router.query.edicion]).map((i, index) => {
+                        const isOdd = (index + 1) % 2 !== 0;
+                        const leftOrRight = isOdd ? 'right' : 'left';
+                        return (
+                            <div className={`relative w-full h-full flex items-center justify-center ${leftOrRight}-0`} key={index}>
+                                <img className='w-full h-full object-contain object-center' src={`${i.url}`} />
+                            </div>
+                        )
+                    })}
+                </HTMLFlipBook>
+            </div>
+            <div className='absolute top-0 z-10 flex'>
+                <button className={`absolute w-[100px] text-[20px] h-[40px] text-white rounded-full inline-block left-0 top-0 bottom-0 my-auto bg-[#00000080] pointer-events-none ${zoom && 'pointer-events-auto'}`} disabled>Anterior</button>
+                <button className={`absolute w-[200px] text-[20px] h-[40px] right-0 top-0 bottom-0 mx-auto bg-[#00000080] z-10 text-white rounded-full inline-block pointer-events-none ${zoom ? 'pointer-events-auto' : 'pointer-events-none'}`} disabled={zoom} onClick={() => setZoom(!zoom)}>{zoom ? 'desabilitar zoom +' : 'habilitar zoom +'}</button>
+                <button className={`absolute w-[100px] text-[20px] h-[40px] text-white rounded-full inline-block right-0 top-0 bottom-0 my-auto bg-[#00000080] pointer-events-none ${zoom && 'pointer-events-auto'}`} disabled>{zoom ? 'Siguiente' : 'Siguiente'}</button>
+            </div>
+        </div>
+    )
 }
 
-export default WithoutAuth(MyBook)
 
+export default WithoutAuth(MyBook)
 
 
 
