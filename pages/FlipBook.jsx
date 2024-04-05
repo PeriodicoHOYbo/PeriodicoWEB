@@ -20,7 +20,7 @@ function MyBook(props) {
                     height={screen.height * 0.90}
                     maxShadowOpacity={0.5}
                     showCover={false}
-                    swipeDistance={10}
+                    swipeDistance={1}
                     flippingTime={500}
                     mobileScrollSupport={true}
                 >
